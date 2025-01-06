@@ -1,0 +1,37 @@
+.side{
+    width: 250px;
+  height: 100vh; 
+  background-color: rgb(55, 17, 77);
+  padding: 20px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0
+}
+
+.side p{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.inner{
+    padding-left: 15px;
+    margin-top: 200px;
+}
+
+.datetime{
+    float: right;
+    padding-right: 15px;
+    margin-top: -70px;
+}
+
+#tab th,td,table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top: 50px;
+    margin-left: 10%;
+    width: 600px;
+    margin-bottom: 5%;
+}
