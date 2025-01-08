@@ -38,6 +38,7 @@ const Content = () => {
 }
 
 const Table = () => {
+    
     const data = [
         { stdname: 'marlon', roll: 1 },
         { stdname: 'marlon', roll: 1 },
