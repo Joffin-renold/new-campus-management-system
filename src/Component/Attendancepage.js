@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Style from './Attendancepage.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import axios from 'axios';
 
 const Sidebar = () => {
     return (
@@ -38,37 +38,20 @@ const Content = () => {
 }
 
 const Table = () => {
-    
-    const data = [
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-        { stdname: 'marlon', roll: 1 },
-
-    ]
-
+    const[data,setData]=useState([]);
+    const[attendance,setAttendance]=useState([]);
+   
+    useEffect(()=>{
+        axios.get('database urls')
+        .then(res=>{
+            setData(res.data)
+            setAttendance(res.data.map((student)=>({//represent the checkbox initially to be false(unclicked) based on name and rollno
+                studentName:student.name,
+                rollno:student.rollno,
+                present:false,
+            })));
+        });
+    },[]);
     return (
         <>
             <div id={Style.tab}>
@@ -78,10 +61,10 @@ const Table = () => {
                         <th>ROLLNO</th>
                         <th>STATUS</th>
                     </tr>
-                    {data.map((dt, index) => (
-                        <tr key={index}>
-                            <td>{dt.stdname}</td>
-                            <td>{dt.roll}</td>
+                    {data.map((std) => (
+                        <tr key={std.rollno}>
+                            <td>{std.name}</td>
+                            <td>{std.rollno}</td>
                             <td><input type='checkbox'></input></td>
                         </tr>))}
                 </table>

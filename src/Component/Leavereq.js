@@ -21,6 +21,10 @@ const Sidebar = () => {
 export default function form(){
     return(<>
         <Sidebar/>
+        <div className="card">
+            
+
+        </div>
       
     </>)
 }
