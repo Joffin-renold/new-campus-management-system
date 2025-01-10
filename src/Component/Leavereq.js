@@ -30,9 +30,10 @@ const Forms = () => {
     });
 
     const handlechange = (e) => {
-        setValue({ ...value, [e.target.name]: [e.target.value] })
+        setValue({ ...value, [e.target.name]: [e.target.value] })//previous value, is changes when text in input field
     }
 
+    //data post to faculty dashboard
     const handlesubmit = async () => {
         try {
             const resp = await axios.post("http://localhost:3000/facultydashboard", value);
