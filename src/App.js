@@ -1,16 +1,12 @@
 
-// import Attendance from './Component/Reportpage'
-import Leave from './Component/Leavereq';
-// import Dash from './Component/Dashboard';
-
+import Dash from './Component/Stdashboard';
+// import Fdash from './Component/facultudash';
 function App() {
   return (
-    <>
-    {/* <Attendance/>
-    <Dash/> */}
-    <Leave/>
-    </>
+    // <Attendance/>
+     <Dash/>
+  //  <Fdash/>
   );
 }
 
-export default App;
+export default App;

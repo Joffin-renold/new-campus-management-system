@@ -19,8 +19,6 @@ const Sidebar = () => {
     );
 }
 
-
-
 const Barcharts = () => {
     const ref1 = useRef(null);//to manipulate dom
     const reff = useRef(null);//reffernce of ref1 
@@ -45,8 +43,6 @@ const Barcharts = () => {
     return (<canvas ref={ref1} style={{ width: '300px', height: '250px' }}></canvas>);
 }
 
-
-
 const Piecharts = () => {
     const ref2 = useRef(null);
     const reff2 = useRef(null);
@@ -70,7 +66,6 @@ const Piecharts = () => {
     }, [])
     return (<canvas ref={ref2} style={{ width: '300px', height: '250px', marginLeft: '50px' }}></canvas>);
 }
-
 
 export default function board() {
     return (
