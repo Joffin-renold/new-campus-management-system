@@ -42,7 +42,7 @@ const Table = () => {
     const[attendance,setAttendance]=useState([]);
    
     useEffect(()=>{
-        axios.get('database urls')
+        axios.get('database urls get')
         .then(res=>{
             setData(res.data)
             setAttendance(res.data.map((student)=>({//represent the checkbox initially to be false(unclicked) based on name and rollno
@@ -50,8 +50,26 @@ const Table = () => {
                 rollno:student.rollno,
                 present:false,
             })));
-        });
+        })
+        .catch((error)=>{console.log("GET method error",error)});
     },[]);
+
+    const handlesubmit=()=>{
+        axios.post("databaseurlpost",attendance)
+        .then((Resp)=>{
+            console.log(Resp.status);
+        })
+        .catch((error)=>{
+            console.log("POST method error",error);
+        })
+    }
+
+    const handlecheckbox=(rollno)=>{
+        setAttendance((prevAttendance)=>prevAttendance.map((student)=>{
+            student.rollno===rollno?{...student,present:!student.present}:student
+        }))
+    }
+
     return (
         <>
             <div id={Style.tab}>
@@ -65,9 +83,11 @@ const Table = () => {
                         <tr key={std.rollno}>
                             <td>{std.name}</td>
                             <td>{std.rollno}</td>
-                            <td><input type='checkbox'></input></td>
+                            <td><input type='checkbox'
+                            checked={attendance.find((student)=>student.rollno===std.rollno)?.present} onChange={()=>handlecheckbox(std.rollno)}></input></td>
                         </tr>))}
                 </table>
+                <button onClick={handlesubmit}>Save Attendance</button>
             </div>
         </>)
 }

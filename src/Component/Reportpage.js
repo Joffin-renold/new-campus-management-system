@@ -67,6 +67,7 @@ const Piecharts = () => {
     return (<canvas ref={ref2} style={{ width: '300px', height: '250px', marginLeft: '50px' }}></canvas>);
 }
 
+
 export default function board() {
     return (
         <>

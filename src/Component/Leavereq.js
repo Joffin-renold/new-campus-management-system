@@ -30,7 +30,7 @@ const Forms = () => {
     });
 
     const handlechange = (e) => {
-        setValue({ ...value, [e.target.name]: [e.target.value] })//previous value, is changes when text in input field
+        setValue({ ...value, [e.target.name]: [e.target.value] })//previous value,is changes when text in input field
     }
 
     //data post to faculty dashboard
